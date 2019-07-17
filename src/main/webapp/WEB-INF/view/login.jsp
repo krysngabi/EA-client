@@ -2,6 +2,7 @@
 <%@ page contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -20,13 +21,37 @@ pageEncoding="UTF-8" %>
     <meta name="google-signin-client_id" content="818417293537-qvh0ogiscij8pm49rk6ag3ajdb67le9r.apps.googleusercontent.com">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-     <style>
+    <link rel="stylesheet" href="/res/login.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <style>
+
+         #background {
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background-image: url("https://www.mum.edu/wp-content/uploads/sites/2/2015/05/014small.jpg");
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             background-size: 100%;
+             opacity: 0.8;
+             filter:alpha(opacity=80);
+         }
         #logreg-forms{
             width:412px;
             margin:10vh auto;
             background-color:#f3f3f3;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
             transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+        .bg-gradient-primary {
+            background-color: #4e73df;
+            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #4e73df), to(#224abe));
+            background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+
+            background-size: cover;
+
         }
         #logreg-forms form {
             width: 100%;
@@ -126,13 +151,19 @@ pageEncoding="UTF-8" %>
             #logreg-forms  .google-btn:after{
                 content:'Google+';
             }
+            .bg-login-image {
+                background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
+                background-position: center;
+                background-size: cover;
+
+            }
 
         }
     </style>
 
     <title>Login Form</title>
 </head>
-<body>
+<body class="bg-gradient-primary">
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.3&appId=868311036876197&autoLogAppEvents=1"></script>
 <script>
     $(function() {
@@ -360,9 +391,11 @@ pageEncoding="UTF-8" %>
         margin-right: auto;
     }
 </style>
+
 <div id="logreg-forms">
+
     <form:form class="form-signin" action="/login" modelAttribute="user"  id="login-form">
-        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> LogIn</h1>
+        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Welcome to AnnaPurna</h1>
         <div class="social-login" style="text-align: center">
             <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" size="large"
                              autologoutlink="true" data-use-continue-as="true">
@@ -372,7 +405,7 @@ pageEncoding="UTF-8" %>
         <div  style="text-align: center" >
             <div class="g-signin2" data-onsuccess="onSignIn"  onclick="ClickLogin()" id="customBtn" data-width="230"  data-longtitle="true"></div>
 
-        <a href="#" onclick="signOut();">GOOGLE SIGN out</a>
+        <a href="#" onclick="signOut();">GOOGLE SIGN OUT</a>
         <script>
             function signOut() {
 
@@ -392,13 +425,16 @@ pageEncoding="UTF-8" %>
         <hr>
         <!-- <p>Don't have an account!</p>  -->
         <button class="btn btn-primary btn-block" type="submit" id="btn-login"><i class="fas fa-user"></i> Login</button>
+         <a href="http://localhost:9999/">
+            <input class="btn btn-success btn-block" type="button" value="Register" />
+        </a>
     </form:form>
-
+    </div>
 
 
     <br>
 
-</div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

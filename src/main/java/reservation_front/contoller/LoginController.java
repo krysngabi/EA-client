@@ -21,8 +21,7 @@ public class LoginController {
     @PostMapping(value = "/login")
     public ResponseEntity<String> post(@RequestBody User user){
 
-        System.out.println("MY USER "+user.getUsername()+" FIRSTNAME "+user.getFirstName()+" TOKEN "+loginServiceProxy.login(user));
-        return loginServiceProxy.login(user);
+         return loginServiceProxy.login(user);
     }
     @GetMapping("/login")
     public String login(@ModelAttribute("user")@RequestBody User user) {
