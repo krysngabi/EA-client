@@ -205,10 +205,10 @@ pageEncoding="UTF-8" %>
                         window.location.href = "/login";
                     }else if(uId=='1'){
                         localStorage.setItem("token", token);
-                        window.location.href = "/";
+                        window.location.href = "/admin/"+token;
                     }else if(uId=='2'){
                         localStorage.setItem("token", token);
-                        window.location.href = "/customer";
+                        window.location.href = "/customer/"+token;
                     }
                 }
             });
@@ -311,10 +311,10 @@ pageEncoding="UTF-8" %>
                         window.location.href = "/login";
                     }else if(uId=='1'){
                         localStorage.setItem("token", token);
-                        window.location.href = "/";
+                        window.location.href = "/admin/"+token;
                     }else if(uId=='2'){
                         localStorage.setItem("token", token);
-                        window.location.href = "/customer";
+                        window.location.href = "/customer/"+token;
                     }
                 }
             });
@@ -363,10 +363,10 @@ pageEncoding="UTF-8" %>
                         window.location.href = "/login";
                     }else if(uId=='1'){
                         localStorage.setItem("token", token);
-                        window.location.href = "/";
+                        window.location.href = "/admin/"+token;
                     }else if(uId=='2'){
                         localStorage.setItem("token", token);
-                        window.location.href = "/customer";
+                        window.location.href = "/customer/"+token;
                     }
 
                 }

@@ -11,4 +11,5 @@ import java.util.List;
 public interface LoginService {
 
     public ResponseEntity<String> login(@RequestBody User user);
+    boolean accessPage(String token);
 }

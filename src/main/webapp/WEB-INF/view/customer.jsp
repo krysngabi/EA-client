@@ -175,7 +175,7 @@
 <div id="logreg-forms">
 
     <form:form class="form-signin" action="/login" modelAttribute="user"  id="login-form">
-        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> ADMIN SPACE</h1>
+        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> CUSTOMER SPACE</h1>
 
     </form:form>
 </div>

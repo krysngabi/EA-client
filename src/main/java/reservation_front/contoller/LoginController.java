@@ -23,9 +23,27 @@ public class LoginController {
 
          return loginServiceProxy.login(user);
     }
-    @GetMapping("/login")
+    @GetMapping(value ={ "/login","/"})
     public String login(@ModelAttribute("user")@RequestBody User user) {
         return "login";
+    }
+    @GetMapping("/admin/{token}")
+    public String mainPage(@PathVariable String token) {
+        if(loginServiceProxy.accessPage(token)){
+            return "index";
+        }else{
+            return "error";
+        }
+    }
+    @GetMapping("/customer/{token}")
+    public String customer(@PathVariable String token) {
+        if(loginServiceProxy.accessPage(token)){
+            return "customer";
+        }else{
+            return "error";
+        }
+
+
     }
     @GetMapping("/logged")
     public String logged(@RequestParam String token,Model model) {

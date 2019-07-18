@@ -24,7 +24,7 @@ public class LoginServiceProxy implements LoginService {
     private RestTemplate restTemplate;
 
     private final String loginUrl = "http://localhost:8080/login";
-    private final String pplUrl = "http://localhost:8080/person/";
+    private final String pplUrl = "http://localhost:8080/check";
 
     @Override
     public ResponseEntity<String> login(User user) {
@@ -41,6 +41,26 @@ public class LoginServiceProxy implements LoginService {
         }
         return ResponseEntity.status(HttpStatus.OK)
                 .body(token);
+
+    }
+    @Override
+    public boolean accessPage(String token) {
+        ResponseEntity<String> responseEntity = new ResponseEntity<>(HttpStatus.OK);
+        responseEntity = restTemplate.postForEntity(pplUrl+"/"+token, token, String.class);
+        StringTokenizer tokenizer1 = new StringTokenizer(responseEntity.toString(), ",");
+        String authorized = "";
+        boolean granted=false;
+        int i = -1;
+        while (tokenizer1.hasMoreElements()) {
+            String statuscode = tokenizer1.nextElement().toString();
+            authorized = tokenizer1.nextElement().toString();
+            break;
+
+        }
+        if(authorized.equals("true")){
+            granted=true;
+        }
+        return granted;
 
     }
 }
